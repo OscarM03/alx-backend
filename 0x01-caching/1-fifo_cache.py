@@ -2,12 +2,14 @@
 """FIFO caching"""
 
 from base_caching import BaseCaching
+from collections import OrderedDict
 
 
 class FIFOCache(BaseCaching):
     """caching system that inherits from BaseCaching"""
     def __init__(self):
         super().__init__()
+        self.cache_data = OrderedDict()
 
     def put(self, key, item):
         """Adds an item in the cache"""
