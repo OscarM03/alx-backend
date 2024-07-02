@@ -5,10 +5,6 @@ from flask import Flask, render_template, request
 from flask_babel import Babel, gettext
 
 
-app = Flask(__name__)
-babel = Babel(app)
-
-
 class Config():
     """config class for languages"""
     LANGUAGES = ["en", "fr"]
@@ -17,6 +13,8 @@ class Config():
     BABEL_DEFAULT_TIMEZONE = "UTC"
 
 
+app = Flask(__name__)
+babel = Babel(app)
 app.config.from_object(Config)
 
 
@@ -29,9 +27,7 @@ def get_locale():
 @app.route('/', strict_slashes=False)
 def index():
     """index route"""
-    home_title = gettext("Welcome to Holberton")
-    home_header = gettext("Hello world")
-    return render_template('3-index.html', home_title=home_title, home_header=home_header)
+    return render_template('3-index.html')
 
 
 if __name__ == '__main__':
