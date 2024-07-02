@@ -77,7 +77,7 @@ def get_timezone():
 @app.route('/', strict_slashes=False)
 def index():
     """index route"""
-    return render_template('5-index.html')
+    return render_template('7-index.html')
 
 
 if __name__ == '__main__':
